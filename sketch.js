@@ -18,7 +18,7 @@ function setup()
     engine = Engine.create();
     world = engine.world;
 
-    slingShot = new SlingShot(polygon.body,{x:100,y:200})
+    slingShot = new SlingShot(this.polygon,{x:100,y:200})
     
     ground = new Ground(400,450,300,20);
     ground2 = new Ground(860,350,200,20)
