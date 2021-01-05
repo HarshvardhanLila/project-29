@@ -18,12 +18,8 @@ function setup()
     engine = Engine.create();
     world = engine.world;
 
-    polygon = Bodies.circle(50,200,20);
-    World.add(world,polygon);
-    imageMode(CENTER);
-    image(polygon_img,polygon.position.x,polygon.position.y,40,40)
-    slingShot = new SlingShot(this.polygon,{x:100,y:200})
-
+    slingShot = new SlingShot(polygon.body,{x:100,y:200})
+    
     ground = new Ground(400,450,300,20);
     ground2 = new Ground(860,350,200,20)
     box1 = new Box(300,430,30,40);
@@ -65,6 +61,12 @@ function draw()
 background(56,44,44);
 Engine.update(engine);
 
+
+polygon = Bodies.circle(50,200,20);
+World.add(world,polygon);
+imageMode(CENTER);
+image(polygon_img,polygon.position.x,polygon.position.y,40,40)
+
 fill(135,206,234)
 box1.display();
 box2.display();
@@ -105,8 +107,10 @@ slingShot.display();
 
 }
 
+
+
 function mouseReleased(){
-    slingshot.fly();
+    slingShot.fly();
    
 }
 
