@@ -18,7 +18,10 @@ function setup()
     engine = Engine.create();
     world = engine.world;
 
-    slingShot = new SlingShot(this.polygon,{x:100,y:200})
+    polygon = Bodies.circle(50,300,20);
+World.add(world,polygon);
+
+    slingShot = new SlingShot(this.polygon,{x:100,y:300})
     
     ground = new Ground(400,450,300,20);
     ground2 = new Ground(860,350,200,20)
@@ -62,8 +65,7 @@ background(56,44,44);
 Engine.update(engine);
 
 
-polygon = Bodies.circle(50,200,20);
-World.add(world,polygon);
+
 imageMode(CENTER);
 image(polygon_img,polygon.position.x,polygon.position.y,40,40)
 
@@ -117,7 +119,7 @@ function mouseReleased(){
 
 function mouseDragged(){
     
-    Matter.Body.setPosition(polygon.body, {x: mouseX , y: mouseY});
+    Matter.Body.setPosition(this.polygon, {x: mouseX , y: mouseY});
 }
 
 
